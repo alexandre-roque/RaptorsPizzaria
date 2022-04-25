@@ -3,12 +3,12 @@ import {
     Routes,
     Route
 } from "react-router-dom";
-import Catalog from "./pages/Catalog";
-import Home from "./pages/Home";
-import Menu from "./pages/Menu";
-import RepositoryList from "./pages/RepositoryList";
+import Catalog from "../pages/Catalog";
+import Home from "../pages/Home";
+import Menu from "../pages/Menu";
+import RepositoryList from "../pages/RepositoryList";
 
-export function AppRoutes() {
+export const AppRoutes = () => {
     return (
         <Router>
             <Routes>
