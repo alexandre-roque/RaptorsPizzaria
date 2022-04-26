@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider/useAuth";
+import Header from "../Header";
 import LoginContainer from "./styles";
 
 export const Login = () => {
@@ -17,6 +18,9 @@ export const Login = () => {
     }
 
     return (
-        <LoginContainer />
+        <>
+            <Header />
+            <LoginContainer />
+        </>
     );
 }

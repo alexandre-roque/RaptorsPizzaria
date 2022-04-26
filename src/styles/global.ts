@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: #2E4057;
+        background: ${props => props.theme.colors.background};
         font-size: 14px;
         color: #333;
         font-family: sans-serif;
@@ -19,5 +19,5 @@ const GlobalStyle = createGlobalStyle`
         width: 100vw;
     }
 `;
-
+// ${props => props.theme.colors.background}
 export default GlobalStyle;
