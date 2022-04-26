@@ -7,14 +7,11 @@ import { DefaultTheme } from "styled-components";
 export const themeSlice = createSlice({
     name: 'theme',
     initialState: {
-        ...dark
+        theme: light
     },
     reducers: {
         changeTheme(state){
-            return (state.title === 'light' ? 
-                {...state, title: dark.title, colors: dark.colors} 
-                : 
-                {...state, title: light.title, colors: light.colors});
+            return state.theme.title === 'dark' ? {...state, theme: dark} : {...state, theme: light}
         }
     }
 });

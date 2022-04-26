@@ -6,17 +6,15 @@ import { QueryClientProvider } from 'react-query'
 import { queryClient } from './services/queryClient'
 import { Provider } from 'react-redux'
 import store from './store'
-import GlobalStyle from "./styles/global"
-import { ThemeProvider } from 'styled-components'
+import Theme from './components/CustomThemeProvider'
 
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={ queryClient } >
       <Provider store={ store }>
-        <ThemeProvider theme={store.getState().theme}>
-          <GlobalStyle />
+        <Theme>
           <App />
-        </ThemeProvider>
+        </Theme>
       </Provider>
     </QueryClientProvider>
   </React.StrictMode>,
