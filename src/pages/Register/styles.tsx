@@ -19,6 +19,6 @@ export const InputContainer = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-    height: 50%;
+    height: 95%;
     width: 100%;
 `;
