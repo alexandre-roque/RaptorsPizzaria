@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
         align-items: center;
         height: 100vh;
         width: 100vw;
+        transition: all .5s ease;
     }
 `;
 // ${props => props.theme.colors.background}

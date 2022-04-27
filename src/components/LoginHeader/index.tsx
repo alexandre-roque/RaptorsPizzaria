@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/index"
 import { DefaultTheme } from "styled-components";
 
-const Header: React.FC = () => {
+const LoginHeader: React.FC = () => {
     const theme= useSelector<RootState, DefaultTheme>(state => state.theme.theme);
     const { colors, title } = useContext(ThemeContext);
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Header: React.FC = () => {
 
     return(
         <Container>
-            Hello World
+            Faça seu login
 
             <Switch
                 onChange={toggleTheme}
@@ -33,15 +33,8 @@ const Header: React.FC = () => {
                 offColor={colors.secundary}
                 onColor={shade(0.2, colors.toggleOn)}
             />
-            <button
-                onClick={() =>
-                    dispatch(changeTheme())
-                }
-            >
-                Trocar tema
-            </button>
         </Container>
     )
 };
 
-export default Header;
+export default LoginHeader;

@@ -6,7 +6,7 @@ export default {
         secundary: '#443850',
         toggleOn: '#204B57',
 
-        background: '#EAF0CE',
-        text: '#7D8491'
+        background: '#D6CFCB',
+        text: '#565264'
     }
 }
