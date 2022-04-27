@@ -19,6 +19,7 @@ export default function Register() {
     const [bairroValue, setBairroValue] = useState("");
     const [cidadeValue, setCidadeValue] = useState("");
     const [estadoValue, setEstadoValue] = useState("");
+    const [compValue, setCompValue] = useState("");
 
     const [emailValue, setEmailValue] = useState(""); 
     const [passwordValue, setPasswordValue] = useState("");  
@@ -33,6 +34,7 @@ export default function Register() {
     const onBairroChange = (e: React.FormEvent<HTMLInputElement>) => setBairroValue(e.currentTarget.value);
     const onCidadeChange = (e: React.FormEvent<HTMLInputElement>) => setCidadeValue(e.currentTarget.value);
     const onEstadoChange = (e: React.FormEvent<HTMLInputElement>) => setEstadoValue(e.currentTarget.value);
+    const onCompChange = (e: React.FormEvent<HTMLInputElement>) => setCompValue(e.currentTarget.value);
     
     const onEmailChange = (e: React.FormEvent<HTMLInputElement>) => setEmailValue(e.currentTarget.value);
     const onPasswordChange = (e: React.FormEvent<HTMLInputElement>) => setPasswordValue(e.currentTarget.value);
@@ -51,12 +53,19 @@ export default function Register() {
 
     const navigate = useNavigate();
     
-    async function onFinish(values: {nome: string, cpf: string, telefone: string, email: string, senha: string}) {
+    async function onFinish(values: {nome: string, cpf: string, telefone: string, 
+            email: string, senha: string, cep: string, nome_rua: string, bairro: string, numero: string, complemento: string,}) {
         try {
-            console.log({ nome: values.nome, cpf: values.cpf, telefone: values.telefone, email: values.email, senha: values.senha });
-            await RegisterRequest({ nome: values.nome, cpf: values.cpf, telefone: values.telefone, email: values.email, senha: values.senha });
+            console.log({ nome: values.nome, cpf: values.cpf, telefone: values.telefone, 
+                email: values.email, senha: values.senha, cep: values.cep, nome_rua: values.nome_rua, 
+                bairro: values.bairro, numero: values.numero, complemento: values.complemento});
 
-            navigate('/login');
+            const response = await RegisterRequest({ nome: values.nome, cpf: values.cpf, telefone: values.telefone, 
+                email: values.email, senha: values.senha, cep: values.cep, nome_rua: values.nome_rua, 
+                bairro: values.bairro, numero: values.numero, complemento: values.complemento});
+            
+            if(response)
+                navigate('/login');
         } catch (error) {
             
         }
@@ -77,12 +86,16 @@ export default function Register() {
                     <Input value={bairroValue} onChange={onBairroChange} type="text" placeholder="Bairro" />
                     <Input value={cidadeValue} onChange={onCidadeChange} type="text" placeholder="Cidade" />
                     <Input value={estadoValue} onChange={onEstadoChange} type="text" placeholder="Estado" />
-                    
+                    <Input value={compValue} onChange={onCompChange} type="text" placeholder="Complemento" />
+
                     <Input value={emailValue} onChange={onEmailChange} type="text" placeholder="Email" />
                     <Input value={passwordValue} onChange={onPasswordChange} type="password" placeholder="Senha" />
                 </InputContainer>
                 <ButtonContainer>
-                    <Button onClick={() => {onFinish({nome: nameValue, cpf: cpfValue, telefone: phoneValue, email: emailValue, senha: passwordValue})}} children="Register" />
+                    <Button onClick={() => {
+                        onFinish({nome: nameValue, cpf: cpfValue, telefone: phoneValue, email: emailValue, senha: passwordValue,
+                            cep: cepValue, nome_rua: ruaValue, bairro: bairroValue, numero: numValue, complemento: compValue
+                    })}} children="Register" />
                 </ButtonContainer>
             </RegisterContainer>
         </>
