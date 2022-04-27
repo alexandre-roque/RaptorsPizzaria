@@ -9,9 +9,12 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/index"
 import { DefaultTheme } from "styled-components";
 
-const LoginHeader: React.FC = () => {
+export type LoginHeaderProps = {
+    content: string
+}
+
+function LoginHeader({content}: LoginHeaderProps) {
     const theme= useSelector<RootState, DefaultTheme>(state => state.theme.theme);
-    const { colors, title } = useContext(ThemeContext);
     const dispatch = useDispatch();
 
     const toggleTheme = () =>{
@@ -20,7 +23,7 @@ const LoginHeader: React.FC = () => {
 
     return(
         <Container>
-            Faça seu login
+            {content}
 
             <Switch
                 onChange={toggleTheme}
@@ -30,8 +33,8 @@ const LoginHeader: React.FC = () => {
                 height={10}
                 width={40}
                 handleDiameter={20}
-                offColor={colors.secundary}
-                onColor={shade(0.2, colors.toggleOn)}
+                offColor={theme.colors.secundary}
+                onColor={shade(0.2, theme.colors.toggleOn)}
             />
         </Container>
     )

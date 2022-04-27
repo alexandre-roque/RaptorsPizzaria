@@ -1,21 +1,20 @@
 import { SetStateAction, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider/useAuth";
-import Button from "../Button";
-import Input from "../Input";
-import LoginHeader from "../LoginHeader";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
+import LoginHeader from "../../components/LoginHeader";
 import { ButtonContainer, HorizontalRule, InputContainer, LoginContainer } from "./styles";
 
-export const Login = () => {
+export default function Login () {
     const auth = useAuth();
     const navigate = useNavigate();
     const [emailValue, setEmailValue] = useState("");   
     const [passwordValue, setPasswordValue] = useState("");
 
-
-    async function onFinish(values: {email: string, password: string}) {
+    async function onFinish(values: {email: string, senha: string}) {
         try {
-            await auth.authenticate(values.email, values.password);
+            await auth.authenticate(values.email, values.senha);
 
             navigate('/profile');
         } catch (error) {
@@ -23,25 +22,25 @@ export const Login = () => {
         }
     }
 
-    const onEmailChange = (e: { target: { value: SetStateAction<string>; }; }) => setEmailValue(e.target.value);
-    const onPasswordChange = (e: { target: { value: SetStateAction<string>; }; }) => setPasswordValue(e.target.value);
+    const onEmailChange = (e: React.FormEvent<HTMLInputElement>) => setEmailValue(e.currentTarget.value);
+    const onPasswordChange = (e: React.FormEvent<HTMLInputElement>) => setPasswordValue(e.currentTarget.value);
 
     return (
         <>
-            <LoginHeader />
+            <LoginHeader content="Faça seu login" />
             <LoginContainer>
                 <InputContainer>
                     <Input value={emailValue} onChange={onEmailChange} type="text" placeholder="Email" />
-                    <Input value={passwordValue} onChange={onPasswordChange} type="text" placeholder="Password" />
+                    <Input value={passwordValue} onChange={onPasswordChange} type="password" placeholder="Senha" />
                 </InputContainer>
                 <ButtonContainer>
-                    <Button onClick={() => {console.log(emailValue, passwordValue)}} children="Sign In" />
+                    <Button onClick={() => {onFinish({email: emailValue, senha: passwordValue})}} children="Sign In" />
                 </ButtonContainer>
                 <HorizontalRule />
                 <ButtonContainer>
-                    <Button onClick={() => {}} children="Sign Up" />
+                    <Button onClick={() => {navigate('/register');}} children="Sign Up" />
                 </ButtonContainer>
             </LoginContainer>
         </>
     );
-}
+};

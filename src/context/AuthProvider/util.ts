@@ -17,9 +17,9 @@ export function getUserLocalStorage () {
     return user ?? null;
 };
 
-export async function LoginRequest (email: string, password: string){
+export async function LoginRequest (email: string, senha: string){
     try {
-        const request = await axios.post("https://.../api/verifica_senha", { email, password });
+        const request = await axios.post("https://.../api/verifica_senha", { email, senha });
 
         return request.data;
     } catch (error) {
