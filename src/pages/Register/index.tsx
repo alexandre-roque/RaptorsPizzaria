@@ -1,4 +1,4 @@
-import { useState, FocusEvent } from "react";
+import { useState, FocusEvent, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { RegisterRequest } from "../../context/RegisterProvider";
 import Button from "../../components/Button";
@@ -28,11 +28,11 @@ export default function Register() {
     const onPhoneChange = (e: React.FormEvent<HTMLInputElement>) => setPhoneValue(e.currentTarget.value);
     
     const onCepChange = (e: React.FormEvent<HTMLInputElement>) => setCepValue(e.currentTarget.value);
-    const onRuaChange = (e: React.FormEvent<HTMLInputElement>) => setCepValue(e.currentTarget.value);
-    const onNumChange = (e: React.FormEvent<HTMLInputElement>) => setCepValue(e.currentTarget.value);
-    const onBairroChange = (e: React.FormEvent<HTMLInputElement>) => setCepValue(e.currentTarget.value);
-    const onCidadeChange = (e: React.FormEvent<HTMLInputElement>) => setCepValue(e.currentTarget.value);
-    const onEstadoChange = (e: React.FormEvent<HTMLInputElement>) => setCepValue(e.currentTarget.value);
+    const onRuaChange = (e: React.FormEvent<HTMLInputElement>) => setRuaValue(e.currentTarget.value);
+    const onNumChange = (e: React.FormEvent<HTMLInputElement>) => setNumValue(e.currentTarget.value);
+    const onBairroChange = (e: React.FormEvent<HTMLInputElement>) => setBairroValue(e.currentTarget.value);
+    const onCidadeChange = (e: React.FormEvent<HTMLInputElement>) => setCidadeValue(e.currentTarget.value);
+    const onEstadoChange = (e: React.FormEvent<HTMLInputElement>) => setEstadoValue(e.currentTarget.value);
     
     const onEmailChange = (e: React.FormEvent<HTMLInputElement>) => setEmailValue(e.currentTarget.value);
     const onPasswordChange = (e: React.FormEvent<HTMLInputElement>) => setPasswordValue(e.currentTarget.value);
@@ -53,7 +53,8 @@ export default function Register() {
     
     async function onFinish(values: {nome: string, cpf: string, telefone: string, email: string, senha: string}) {
         try {
-            await RegisterRequest({ nome: values.nome, cpf: values.cpf, telefone: values.telefone, email: values.email, password: values.senha });
+            console.log({ nome: values.nome, cpf: values.cpf, telefone: values.telefone, email: values.email, senha: values.senha });
+            await RegisterRequest({ nome: values.nome, cpf: values.cpf, telefone: values.telefone, email: values.email, senha: values.senha });
 
             navigate('/login');
         } catch (error) {

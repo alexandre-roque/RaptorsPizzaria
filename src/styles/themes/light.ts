@@ -7,6 +7,6 @@ export default {
         toggleOn: '#204B57',
 
         background: '#D6CFCB',
-        text: '#565264'
+        text: '#000000'
     }
 }
