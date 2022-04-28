@@ -10,3 +10,17 @@ export const Container = styled.div`
     padding: 0 30px;
     border-radius: 10px;
 `;
+
+export const Toggle = styled.button`
+    cursor: pointer;
+    height: 45px;
+    width: 45px;   
+    border-radius: 50%;
+    border: none;
+    background-color: ${props => props.theme.colors.secundary};
+    color: ${props => props.theme.colors.background};
+    &:focus {
+        outline: none;
+    }
+    transition: all .3s ease;
+`;

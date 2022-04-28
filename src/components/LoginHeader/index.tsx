@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
-import Switch from 'react-switch';
-import { ThemeContext } from "styled-components";
-import { Container } from "./styles";
-import { shade } from 'polished';
+import { CgSun } from 'react-icons/cg'
+import { HiMoon } from 'react-icons/hi'
+import { Container, Toggle } from "./styles";
 import { useDispatch } from "react-redux";
 import { changeTheme } from "../../store/ducks/theme";
 import { useSelector } from "react-redux";
@@ -21,21 +19,15 @@ function LoginHeader({content}: LoginHeaderProps) {
         dispatch(changeTheme());
     }
 
+    const icon = theme.title === "light" ? <HiMoon size={30} /> : <CgSun size={30} />;
+
     return(
         <Container>
             {content}
 
-            <Switch
-                onChange={toggleTheme}
-                checked={theme.title === 'dark'}
-                checkedIcon={false}
-                uncheckedIcon={false}
-                height={10}
-                width={40}
-                handleDiameter={20}
-                offColor={theme.colors.secundary}
-                onColor={shade(0.2, theme.colors.toggleOn)}
-            />
+            <Toggle onClick={toggleTheme}>
+                {icon}
+            </Toggle>
         </Container>
     )
 };
