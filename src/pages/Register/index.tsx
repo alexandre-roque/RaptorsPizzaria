@@ -54,18 +54,24 @@ export default function Register() {
     const navigate = useNavigate();
     
     async function onFinish(values: {nome: string, cpf: string, telefone: string, 
-            email: string, senha: string, cep: string, nome_rua: string, bairro: string, numero: string, complemento: string,}) {
+            email: string, senha: string, cep: string, nome_rua: string, bairro: string, numero: number, 
+            complemento: string, cidade: string, estado: string}) {
         try {
             console.log({ nome: values.nome, cpf: values.cpf, telefone: values.telefone, 
                 email: values.email, senha: values.senha, cep: values.cep, nome_rua: values.nome_rua, 
-                bairro: values.bairro, numero: values.numero, complemento: values.complemento});
+                bairro: values.bairro, numero: values.numero, complemento: values.complemento, 
+                cidade: values.cidade, estado: values.estado});
 
             const response = await RegisterRequest({ nome: values.nome, cpf: values.cpf, telefone: values.telefone, 
                 email: values.email, senha: values.senha, cep: values.cep, nome_rua: values.nome_rua, 
-                bairro: values.bairro, numero: values.numero, complemento: values.complemento});
+                bairro: values.bairro, numero: values.numero, complemento: values.complemento, 
+                cidade: values.cidade, estado: values.estado});
             
             if(response)
                 navigate('/login');
+            else{
+                console.log(response);
+            }
         } catch (error) {
             
         }
@@ -94,7 +100,8 @@ export default function Register() {
                 <ButtonContainer>
                     <Button onClick={() => {
                         onFinish({nome: nameValue, cpf: cpfValue, telefone: phoneValue, email: emailValue, senha: passwordValue,
-                            cep: cepValue, nome_rua: ruaValue, bairro: bairroValue, numero: numValue, complemento: compValue
+                            cep: cepValue, nome_rua: ruaValue, bairro: bairroValue, numero: parseInt(numValue), complemento: compValue, 
+                            cidade: cidadeValue, estado: estadoValue
                     })}} children="Register" />
                 </ButtonContainer>
             </RegisterContainer>
