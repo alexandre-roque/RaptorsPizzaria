@@ -6,14 +6,15 @@ import { DefaultTheme } from "styled-components";
 
 export const themeSlice = createSlice({
     name: 'theme',
-    initialState: {
-        theme: !!localStorage.getItem('theme') ? JSON.parse(localStorage.getItem('theme')!) : light
-    },
+    initialState: 
+        !!localStorage.getItem('theme') ? 
+            { ...(JSON.parse(localStorage.getItem('theme')!)) } : { ...light }
+    ,
     reducers: {
         changeTheme(state){
-            const theme = state.theme.title === 'light' ? dark : light;
+            const theme = state.title === 'light' ? dark : light;
             localStorage.setItem('theme', JSON.stringify(theme));
-            return state.theme.title === 'light' ? {...state, theme: theme} : {...state, theme: theme}
+            return state.title === 'light' ? {...state, ...theme} : {...state, ...theme}
         }
     }
 });

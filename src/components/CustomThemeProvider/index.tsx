@@ -5,7 +5,7 @@ import { DefaultTheme, ThemeProvider } from "styled-components";
 import GlobalStyle from "../../styles/global"
 
 const Theme = ({ children }: { children: JSX.Element}) => {
-  const theme= useSelector<RootState, DefaultTheme>(state => state.theme.theme);
+  const theme= useSelector<RootState, DefaultTheme>(state => state.theme);
 
   return <ThemeProvider theme={theme}><GlobalStyle />{children}</ThemeProvider>;
 };

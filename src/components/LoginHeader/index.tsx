@@ -12,7 +12,7 @@ export type LoginHeaderProps = {
 }
 
 function LoginHeader({content}: LoginHeaderProps) {
-    const theme= useSelector<RootState, DefaultTheme>(state => state.theme.theme);
+    const theme= useSelector<RootState, DefaultTheme>(state => state.theme);
     const dispatch = useDispatch();
 
     const toggleTheme = () =>{

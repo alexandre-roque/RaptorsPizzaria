@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
+import cart from './ducks/cart';
 import theme from './ducks/theme';
 import user from './ducks/user';
 
 const store = configureStore({
     reducer: {
-        theme: theme
+        theme: theme,
+        user: user,
+        cart: cart
     }
 });
 
