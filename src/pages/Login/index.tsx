@@ -16,9 +16,9 @@ export default function Login () {
         try {
             const response = await auth.authenticate(values.email, values.senha);
 
-            navigate('/profile');
+            navigate('/menu');
         } catch (error) {
-            throw "Email ou senha inválido"
+            console.log("Email ou senha inválidos");
         }
     }
 

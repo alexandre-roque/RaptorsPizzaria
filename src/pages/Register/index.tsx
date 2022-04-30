@@ -1,12 +1,12 @@
 import { useState, FocusEvent, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { RegisterRequest } from "../../context/RegisterProvider";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { ButtonContainer, LoginBody } from "../Login/styles";
 import LoginHeader from "../../components/LoginHeader";
 import { RegisterContainer, InputContainer } from "./styles";
 import axios from "axios";
+import { Api } from "../../services/api";
 
 export default function Register() {
     const [nameValue, setNameValue] = useState("");
@@ -56,24 +56,16 @@ export default function Register() {
     async function onFinish(values: {nome: string, cpf: string, telefone: string, 
             email: string, senha: string, cep: string, nome_rua: string, bairro: string, numero: number, 
             complemento: string, cidade: string, estado: string}) {
-        try {
-            console.log({ nome: values.nome, cpf: values.cpf, telefone: values.telefone, 
-                email: values.email, senha: values.senha, cep: values.cep, nome_rua: values.nome_rua, 
-                bairro: values.bairro, numero: values.numero, complemento: values.complemento, 
-                cidade: values.cidade, estado: values.estado});
 
-            const response = await RegisterRequest({ nome: values.nome, cpf: values.cpf, telefone: values.telefone, 
+        try {
+            const request = await Api.post("/register_user", { nome: values.nome, cpf: values.cpf, telefone: values.telefone, 
                 email: values.email, senha: values.senha, cep: values.cep, nome_rua: values.nome_rua, 
                 bairro: values.bairro, numero: values.numero, complemento: values.complemento, 
                 cidade: values.cidade, estado: values.estado});
             
-            if(response)
-                navigate('/login');
-            else{
-                console.log(response);
-            }
+            navigate('/login');
         } catch (error) {
-            
+            console.log("Erro ao registrar o usuário");
         }
     };
 

@@ -18,7 +18,19 @@ export const AuthProvider = ({children}: IAuthProvider) => {
     async function authenticate(email:string, senha: string) {
         const response = await LoginRequest(email, senha);
 
-        const payload = {token: response.token, email};
+        console.log(response);
+
+        if(!response.data){
+            throw "Não foi possível fazer login";
+        }
+
+        const payload = { 
+            email, 
+            nome: response.nome, 
+            telefone: response.telefone, 
+            cpf: response.cpf, 
+            endereco: response.endereco
+        };
 
         setUser(payload);
         setUserLocalStorage(payload);
