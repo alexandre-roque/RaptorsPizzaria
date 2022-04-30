@@ -7,7 +7,7 @@ import { DefaultTheme } from 'styled-components';
 import { RootState } from '../../store';
 import { changeTheme } from '../../store/ducks/theme';
 import { Toggle } from '../LoginHeader/styles'
-import { HeaderBody, StyledHeader, StyledMenu } from './styles'
+import { HeaderBody, StyledHeader, StyledIcon, StyledMenu } from './styles'
 import { useNavigate } from 'react-router-dom';
 import { totalAmout } from '../../store/ducks/cart';
 import logo from '../../assets/img/logo.jpg'
@@ -35,7 +35,7 @@ export default function Header() {
                   <li>
                     <Toggle onClick={() => navigate('/cart')}>
                       <BsCart4 size={20} />
-                      {totalAmount}
+                      <StyledIcon>{totalAmount}</StyledIcon>
                     </Toggle>
                   </li>
                   <li>

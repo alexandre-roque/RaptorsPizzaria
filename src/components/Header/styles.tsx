@@ -41,3 +41,11 @@ export const StyledMenu = styled.div`
         padding: 10px;
     }
 `;
+
+export const StyledIcon = styled.div`
+    border: none;
+    width: 45px;
+    height: 15px;
+    border-radius: 1px;
+    color: ${props => props.theme.colors.toggleOn};
+`;
