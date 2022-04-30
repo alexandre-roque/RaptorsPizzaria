@@ -23,5 +23,8 @@ export const Toggle = styled.button`
     &:focus {
         outline: none;
     }
+    :hover{
+        background-color: ${props => props.theme.colors.text};
+    }
     transition: all .3s ease;
 `;
