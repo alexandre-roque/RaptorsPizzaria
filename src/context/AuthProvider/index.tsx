@@ -20,7 +20,7 @@ export const AuthProvider = ({children}: IAuthProvider) => {
 
         console.log(response);
 
-        if(!response.data){
+        if(!response){
             throw "Não foi possível fazer login";
         }
 

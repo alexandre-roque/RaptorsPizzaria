@@ -14,7 +14,7 @@ export default function Login () {
 
     async function onFinish(values: {email: string, senha: string}) {
         try {
-            const response = await auth.authenticate(values.email, values.senha);
+           await auth.authenticate(values.email, values.senha);
 
             navigate('/menu');
         } catch (error) {
