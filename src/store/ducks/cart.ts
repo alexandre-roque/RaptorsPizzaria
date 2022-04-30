@@ -2,16 +2,8 @@
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "..";
-
-interface Item {
-    item: string,
-    tamanho: string,
-    preco: number,
-    id: number,
-    categoria: string
-};
-
-export interface ItemCart extends Item {
+import { ItemProps } from "../../components/Item";
+export interface ItemCart extends ItemProps {
     amount: number;
 };
 
@@ -19,7 +11,7 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState: [] as ItemCart[],
     reducers: {
-        addItemToCart: (state, action: PayloadAction<Item>) => {
+        addItemToCart: (state, action: PayloadAction<ItemProps>) => {
             const itemIndex = state.findIndex(item => item.id === action.payload.id);
             if(itemIndex !== -1){
                 state[itemIndex].amount += 1;

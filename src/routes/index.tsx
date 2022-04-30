@@ -6,7 +6,6 @@ import {
 import Login from "../pages/Login";
 import { ProtectedLayout } from "../components/ProtectedLayout";
 import Register from "../pages/Register";
-import Home from "../pages/Home";
 import RepositoryList from "../pages/RepositoryList";
 import Catalog from "../pages/Catalog";
 
@@ -14,11 +13,10 @@ export const AppRoutes = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Catalog />} />
                 <Route path="/repoList" element={<RepositoryList />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/catalog" element={<Catalog />}/>
                 <Route path="/profile" element={
                     <ProtectedLayout>
                         <h2>Esse é o componente profile!</h2>

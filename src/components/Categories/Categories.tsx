@@ -1,9 +1,11 @@
 import React from "react";
 
-const Categories = ({ categories, filterItems, activeCategory } : any) => {
+type CategoriesProps = { categories: string[], filterItems: any, activeCategory: string};
+
+const Categories = ({ categories, filterItems, activeCategory } : CategoriesProps) => {
   return (
     <div className="btn-container">
-      {categories.map((category : any, index : any) => {
+      {categories.map((category : string, index : number) => {
         return (
           <button
             type="button"
