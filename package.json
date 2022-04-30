@@ -17,7 +17,8 @@
     "react-query": "^3.38.0",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "yarn": "^1.22.18"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",
