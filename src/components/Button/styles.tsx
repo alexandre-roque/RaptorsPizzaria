@@ -13,7 +13,6 @@ export const StyledButton = styled.button`
     color: ${props => props.theme.colors.text};
     cursor: pointer;
     :hover {
-        background: linear-gradient(to right, ${props => props.theme.colors.secundary} 0%, ${props => props.theme.colors.primary} 130%);
-        border: solid;
+        box-shadow:  1px 1px 10px ${props => props.theme.colors.text};
     }
 `;
