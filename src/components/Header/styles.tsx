@@ -19,10 +19,19 @@ export const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 20px;
     flex-wrap: wrap;
 `;
 
 export const StyledMenu = styled.div`
-    
+    display: flex;
+
+    li {
+        margin-left: 10px;
+    }
+
+    li a {
+        display: block;
+        padding: 10px;
+    }
 `;

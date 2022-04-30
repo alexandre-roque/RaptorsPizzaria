@@ -23,14 +23,14 @@ export default function Header() {
             <a href="/">Logo</a>
             <nav>
                 <StyledMenu>
-                    <li><a href="/">Sobre</a></li>
-                    <li><a href="/">Produtos</a></li>
-                    <li><a href="/">Contato</a></li>
+                  <li><a href="/">Sobre</a></li>
+                  <li><a href="/">Produtos</a></li>
+                  <li><a href="/">Contato</a></li>
+                  <Toggle onClick={toggleTheme}>
+                      {icon}
+                  </Toggle>
                 </StyledMenu>
             </nav>
-          <Toggle onClick={toggleTheme}>
-              {icon}
-          </Toggle>
         </StyledHeader>
     </HeaderBody>
   )
