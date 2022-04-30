@@ -13,7 +13,7 @@ export default function Menu() {
       <ul>
         { cardapio?.map(item => {
           return (
-              <li key={item.item}>
+              <li key={item.id}>
                   <strong>{item.item}</strong>
                   <p>{item.preco}</p>
               </li>

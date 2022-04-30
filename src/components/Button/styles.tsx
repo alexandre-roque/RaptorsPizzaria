@@ -12,4 +12,8 @@ export const StyledButton = styled.button`
     border-radius: 2rem;
     color: ${props => props.theme.colors.text};
     cursor: pointer;
+    :hover {
+        background: linear-gradient(to right, ${props => props.theme.colors.secundary} 0%, ${props => props.theme.colors.primary} 130%);
+        border: solid;
+    }
 `;

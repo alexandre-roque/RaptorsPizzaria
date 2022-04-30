@@ -28,8 +28,8 @@ export default function Login () {
     return (
         <>
             <LoginBody>
-                <LoginHeader content="Faça seu login" />
                 <LoginContainer>
+                    <LoginHeader content="Faça seu login" />
                     <InputContainer>
                         <Input value={emailValue} onChange={onEmailChange} type="text" placeholder="Email" />
                         <Input value={passwordValue} onChange={onPasswordChange} type="password" placeholder="Senha" />

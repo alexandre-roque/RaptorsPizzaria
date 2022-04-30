@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const HeaderBody = styled.body`
+export const HeaderBody = styled.div`
     flex-direction: column;
     body, ul, li, p {
         margin: 0px;

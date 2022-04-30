@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 
-export const LoginBody = styled.body`
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
+export const LoginBody = styled.div`
     width: 100vw;
 `;
 
 export const LoginContainer = styled.div`
-    display: flex;
+    display: block;
     align-items: center;
     flex-direction: column;
+    margin: auto;
+    margin-top: 200px;
     height: 50vh;
     width: 30vw;
     background: rgba(255, 255, 255, 0.15);
@@ -39,11 +37,11 @@ export const ButtonContainer = styled.div`
 `;
 
 export const HorizontalRule = styled.hr`
-    width: 90%;
+    margin: auto;
+    width: 80%;
     height: 0.3rem;
     border-radius: 0.8rem;
     border: none;
-    margin: 1.5em 0 1rem 0;
     background: linear-gradient(to right, ${props => props.theme.colors.primary} 0%, ${props => props.theme.colors.secundary} 130%);
     backdrop-filter: blur(25px);
 `;

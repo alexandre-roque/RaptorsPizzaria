@@ -4,6 +4,8 @@ export const RegisterContainer = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin: auto;
+    margin-top: 10px;
     height: 92vh;
     width: 30vw;
     background: rgba(255, 255, 255, 0.15);

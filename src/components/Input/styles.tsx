@@ -15,4 +15,8 @@ export const StyledInput = styled.input`
     color: ${props => props.theme.colors.text};
     font-size: 1rem;
     font-weight: bold;
+    &:focus{
+        border: hidden;
+        box-shadow:  2px 2px 5px ${props => props.theme.colors.secundary};
+    }
 `;

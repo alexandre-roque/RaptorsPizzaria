@@ -72,8 +72,8 @@ export default function Register() {
     return (
         <>
             <LoginBody>
-            <LoginHeader  content="Registre-se" />
                 <RegisterContainer>
+                    <LoginHeader  content="Registre-se" />
                     <InputContainer>
                         <Input value={nameValue} onChange={onNameChange} type="text" placeholder="Nome" />
                         <Input value={cpfValue} onChange={onCpfChange} type="text" placeholder="Cpf" />
