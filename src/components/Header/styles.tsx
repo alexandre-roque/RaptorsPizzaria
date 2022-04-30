@@ -21,6 +21,12 @@ export const StyledHeader = styled.header`
     align-items: center;
     padding: 20px;
     flex-wrap: wrap;
+    img {
+        float: left;
+        width: 50px;
+        height: 50px;
+        background: #555;
+    }
 `;
 
 export const StyledMenu = styled.div`
