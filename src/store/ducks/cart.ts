@@ -1,6 +1,7 @@
 // Redux: https://youtu.be/3KUVksNAAxo?t=378
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "..";
 
 interface Item {
     item: string,
@@ -10,7 +11,7 @@ interface Item {
     categoria: string
 };
 
-interface ItemCart extends Item {
+export interface ItemCart extends Item {
     amount: number;
 };
 
@@ -41,6 +42,8 @@ export const cartSlice = createSlice({
 
 export const { addItemToCart, removeItemFromCart } = cartSlice.actions;
 
-export const selectCart = (state: { cart: ItemCart[]; }) => state.cart;
+export const selectCart = (state: RootState) => state.cart;
+
+export const totalAmout = (state: RootState) => state.cart.map(item => item.amount).reduce((acc, total) => acc+total, 0);
 
 export default cartSlice.reducer;
