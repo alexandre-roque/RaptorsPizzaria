@@ -8,6 +8,7 @@ import { ProtectedLayout } from "../components/ProtectedLayout";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
 import RepositoryList from "../pages/RepositoryList";
+import Catalog from "../pages/Catalog";
 
 export const AppRoutes = () => {
     return (
@@ -17,6 +18,7 @@ export const AppRoutes = () => {
                 <Route path="/repoList" element={<RepositoryList />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/catalog" element={<Catalog />}/>
                 <Route path="/profile" element={
                     <ProtectedLayout>
                         <h2>Esse é o componente profile!</h2>
