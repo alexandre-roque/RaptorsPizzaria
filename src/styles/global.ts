@@ -11,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
         background: ${props => props.theme.colors.background};
         font-size: 14px;
         font-family: sans-serif;
-        display: flex;
         transition: all .3s ease;
     }
 `;
