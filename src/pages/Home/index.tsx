@@ -11,14 +11,14 @@ export default function Menu() {
     <>
       <Header />
       <ul>
-      { cardapio?.map(item => {
-                return (
-                    <li key={item.item}>
-                        <strong>{item.item}</strong>
-                        <p>{item.preco}</p>
-                    </li>
-                )
-            })}
+        { cardapio?.map(item => {
+          return (
+              <li key={item.item}>
+                  <strong>{item.item}</strong>
+                  <p>{item.preco}</p>
+              </li>
+          )
+        })}
       </ul>
     </>
   )
