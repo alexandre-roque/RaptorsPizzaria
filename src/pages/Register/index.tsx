@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { RegisterRequest } from "../../context/RegisterProvider";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-import { ButtonContainer } from "../Login/styles";
+import { ButtonContainer, LoginBody } from "../Login/styles";
 import LoginHeader from "../../components/LoginHeader";
 import { RegisterContainer, InputContainer } from "./styles";
 import axios from "axios";
@@ -79,32 +79,34 @@ export default function Register() {
 
     return (
         <>
+            <LoginBody>
             <LoginHeader  content="Registre-se" />
-            <RegisterContainer>
-                <InputContainer>
-                    <Input value={nameValue} onChange={onNameChange} type="text" placeholder="Nome" />
-                    <Input value={cpfValue} onChange={onCpfChange} type="text" placeholder="Cpf" />
-                    <Input value={phoneValue} onChange={onPhoneChange} type="text" placeholder="Telefone" />
-                    
-                    <Input value={cepValue} onChange={onCepChange} onBlur={checkCep} type="text" placeholder="Cep" />
-                    <Input value={ruaValue} onChange={onRuaChange} type="text" placeholder="Rua" />
-                    <Input value={numValue} onChange={onNumChange} type="text" placeholder="Número" />
-                    <Input value={bairroValue} onChange={onBairroChange} type="text" placeholder="Bairro" />
-                    <Input value={cidadeValue} onChange={onCidadeChange} type="text" placeholder="Cidade" />
-                    <Input value={estadoValue} onChange={onEstadoChange} type="text" placeholder="Estado" />
-                    <Input value={compValue} onChange={onCompChange} type="text" placeholder="Complemento" />
+                <RegisterContainer>
+                    <InputContainer>
+                        <Input value={nameValue} onChange={onNameChange} type="text" placeholder="Nome" />
+                        <Input value={cpfValue} onChange={onCpfChange} type="text" placeholder="Cpf" />
+                        <Input value={phoneValue} onChange={onPhoneChange} type="text" placeholder="Telefone" />
+                        
+                        <Input value={cepValue} onChange={onCepChange} onBlur={checkCep} type="text" placeholder="Cep" />
+                        <Input value={ruaValue} onChange={onRuaChange} type="text" placeholder="Rua" />
+                        <Input value={numValue} onChange={onNumChange} type="text" placeholder="Número" />
+                        <Input value={bairroValue} onChange={onBairroChange} type="text" placeholder="Bairro" />
+                        <Input value={cidadeValue} onChange={onCidadeChange} type="text" placeholder="Cidade" />
+                        <Input value={estadoValue} onChange={onEstadoChange} type="text" placeholder="Estado" />
+                        <Input value={compValue} onChange={onCompChange} type="text" placeholder="Complemento" />
 
-                    <Input value={emailValue} onChange={onEmailChange} type="text" placeholder="Email" />
-                    <Input value={passwordValue} onChange={onPasswordChange} type="password" placeholder="Senha" />
-                </InputContainer>
-                <ButtonContainer>
-                    <Button onClick={() => {
-                        onFinish({nome: nameValue, cpf: cpfValue, telefone: phoneValue, email: emailValue, senha: passwordValue,
-                            cep: cepValue, nome_rua: ruaValue, bairro: bairroValue, numero: parseInt(numValue), complemento: compValue, 
-                            cidade: cidadeValue, estado: estadoValue
-                    })}} children="Register" />
-                </ButtonContainer>
-            </RegisterContainer>
+                        <Input value={emailValue} onChange={onEmailChange} type="text" placeholder="Email" />
+                        <Input value={passwordValue} onChange={onPasswordChange} type="password" placeholder="Senha" />
+                    </InputContainer>
+                    <ButtonContainer>
+                        <Button onClick={() => {
+                            onFinish({nome: nameValue, cpf: cpfValue, telefone: phoneValue, email: emailValue, senha: passwordValue,
+                                cep: cepValue, nome_rua: ruaValue, bairro: bairroValue, numero: parseInt(numValue), complemento: compValue, 
+                                cidade: cidadeValue, estado: estadoValue
+                        })}} children="Register" />
+                    </ButtonContainer>
+                </RegisterContainer>
+            </LoginBody>
         </>
     );
 };

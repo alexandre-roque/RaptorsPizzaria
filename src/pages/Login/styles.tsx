@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const LoginBody = styled.body`
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`;
+
 export const LoginContainer = styled.div`
     display: flex;
     align-items: center;

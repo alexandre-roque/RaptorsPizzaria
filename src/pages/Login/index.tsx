@@ -4,7 +4,7 @@ import { useAuth } from "../../context/AuthProvider/useAuth";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import LoginHeader from "../../components/LoginHeader";
-import { ButtonContainer, HorizontalRule, InputContainer, LoginContainer } from "./styles";
+import { ButtonContainer, HorizontalRule, InputContainer, LoginBody, LoginContainer } from "./styles";
 
 export default function Login () {
     const auth = useAuth();
@@ -27,20 +27,22 @@ export default function Login () {
 
     return (
         <>
-            <LoginHeader content="Faça seu login" />
-            <LoginContainer>
-                <InputContainer>
-                    <Input value={emailValue} onChange={onEmailChange} type="text" placeholder="Email" />
-                    <Input value={passwordValue} onChange={onPasswordChange} type="password" placeholder="Senha" />
-                </InputContainer>
-                <ButtonContainer>
-                    <Button onClick={() => {onFinish({email: emailValue, senha: passwordValue})}} children="Sign In" />
-                </ButtonContainer>
-                <HorizontalRule />
-                <ButtonContainer>
-                    <Button onClick={() => {navigate('/register');}} children="Sign Up" />
-                </ButtonContainer>
-            </LoginContainer>
+            <LoginBody>
+                <LoginHeader content="Faça seu login" />
+                <LoginContainer>
+                    <InputContainer>
+                        <Input value={emailValue} onChange={onEmailChange} type="text" placeholder="Email" />
+                        <Input value={passwordValue} onChange={onPasswordChange} type="password" placeholder="Senha" />
+                    </InputContainer>
+                    <ButtonContainer>
+                        <Button onClick={() => {onFinish({email: emailValue, senha: passwordValue})}} children="Sign In" />
+                    </ButtonContainer>
+                    <HorizontalRule />
+                    <ButtonContainer>
+                        <Button onClick={() => {navigate('/register');}} children="Sign Up" />
+                    </ButtonContainer>
+                </LoginContainer>
+            </LoginBody>
         </>
     );
 };

@@ -13,8 +13,6 @@ const GlobalStyle = createGlobalStyle`
         color: #333;
         font-family: sans-serif;
         display: flex;
-        justify-content: center;
-        align-items: center;
         height: 100vh;
         width: 100vw;
         transition: all .3s ease;
