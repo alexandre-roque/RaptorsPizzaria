@@ -10,11 +10,8 @@ const GlobalStyle = createGlobalStyle`
     body {
         background: ${props => props.theme.colors.background};
         font-size: 14px;
-        color: #333;
         font-family: sans-serif;
         display: flex;
-        height: 100vh;
-        width: 100vw;
         transition: all .3s ease;
     }
 `;

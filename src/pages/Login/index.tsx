@@ -14,11 +14,11 @@ export default function Login () {
 
     async function onFinish(values: {email: string, senha: string}) {
         try {
-            await auth.authenticate(values.email, values.senha);
+            const response = await auth.authenticate(values.email, values.senha);
 
             navigate('/profile');
         } catch (error) {
-            
+            throw "Email ou senha inválido"
         }
     }
 

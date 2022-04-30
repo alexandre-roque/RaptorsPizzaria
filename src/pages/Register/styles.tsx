@@ -19,6 +19,7 @@ export const InputContainer = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
+    padding-bottom: 2px; 
     height: 95%;
     width: 100%;
 `;

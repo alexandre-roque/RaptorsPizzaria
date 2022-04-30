@@ -4,6 +4,8 @@ export const LoginBody = styled.body`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100vh;
+    width: 100vw;
 `;
 
 export const LoginContainer = styled.div`
