@@ -16,7 +16,7 @@ export default function Login () {
         try {
            await auth.authenticate(values.email, values.senha);
 
-            navigate('/menu');
+            navigate('/');
         } catch (error) {
             console.log("Email ou senha inválidos");
         }

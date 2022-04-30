@@ -1,4 +1,6 @@
 import React, {createContext, useEffect, useState} from "react";
+import { useDispatch } from "react-redux";
+import { changeUser, reduxLogout } from "../../store/ducks/user";
 import { IAuthProvider, IContext, IUser } from "./types";
 import { getUserLocalStorage, LoginRequest, setUserLocalStorage } from "./util";
 
@@ -6,12 +8,14 @@ export const AuthContext = createContext<IContext>({} as IContext);
 
 export const AuthProvider = ({children}: IAuthProvider) => {
     const [user, setUser] = useState<IUser | null>();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const user = getUserLocalStorage();
 
         if(user){
             setUser(user);
+            dispatch(changeUser(user));
         }
     }, []);
 
@@ -20,23 +24,24 @@ export const AuthProvider = ({children}: IAuthProvider) => {
 
         console.log(response);
 
-        if(!response){
+        if(!response || !response.isLogged){
             throw "Não foi possível fazer login";
         }
 
         const payload = { 
             email, 
             nome: response.nome, 
-            telefone: response.telefone, 
-            cpf: response.cpf, 
-            endereco: response.endereco
+            endereco: response.endereco,
+            isLogged: response.isLogged
         };
 
         setUser(payload);
         setUserLocalStorage(payload);
+        dispatch(changeUser(payload));
     }
 
     function logout () {
+        dispatch(reduxLogout());
         setUser(null);
         setUserLocalStorage(null);
     }

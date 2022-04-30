@@ -15,5 +15,5 @@ const GlobalStyle = createGlobalStyle`
         transition: all .3s ease;
     }
 `;
-// ${props => props.theme.colors.background}
+
 export default GlobalStyle;

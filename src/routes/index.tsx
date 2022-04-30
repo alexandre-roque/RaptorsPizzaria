@@ -6,9 +6,7 @@ import {
 import Login from "../pages/Login";
 import { ProtectedLayout } from "../components/ProtectedLayout";
 import Register from "../pages/Register";
-import Catalog from "../pages/Catalog";
 import Home from "../pages/Home";
-import Menu from "../pages/Menu";
 import RepositoryList from "../pages/RepositoryList";
 
 export const AppRoutes = () => {
@@ -16,9 +14,7 @@ export const AppRoutes = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/catalog" element={<Catalog />} />
                 <Route path="/repoList" element={<RepositoryList />} />
-                <Route path="/menu" element={<Menu />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={

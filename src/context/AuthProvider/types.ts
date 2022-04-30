@@ -1,16 +1,15 @@
 export interface IUser {
     email?: string;
     nome?:string,
-    telefone?: string,
-    cpf?:string,
     endereco?: {
         cep?:string,
         complemento?:string,
-        numero?:string,
+        numero?:number,
         bairro?:string,
         cidade?:string,
         estado?:string
-    }
+    },
+    isLogged?: boolean
 }
 
 export interface IContext extends IUser {
