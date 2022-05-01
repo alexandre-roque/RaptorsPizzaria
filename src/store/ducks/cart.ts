@@ -11,13 +11,13 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState: [] as ItemCart[],
     reducers: {
-        addItemToCart: (state, action: PayloadAction<ItemProps>) => {
+        addItemToCart: (state, action: PayloadAction<ItemCart>) => {
             const itemIndex = state.findIndex(item => item.id === action.payload.id);
             if(itemIndex !== -1){
-                state[itemIndex].amount += 1;
+                state[itemIndex].amount += action.payload.amount;
             }
             else {
-                state.push({...action.payload, amount: 1});
+                state.push({...action.payload, amount: action.payload.amount});
             }
         },
         removeItemFromCart: (state, action: PayloadAction<number>) => {

@@ -1,6 +1,8 @@
 import React, { Component, useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../../store/ducks/cart';
 import Button from '../Button';
-import { AmountButton, AmountContainer, AmountNumber, ButtonContainer, ImageContainer, ItemsContainer } from '../Menu/styles';
+import { AmountButton, AmountContainer, AmountNumber, ButtonContainer, ImageContainer, ItemsContainer } from './styles';
 
 export interface ItemProps {
   nome: string,
@@ -14,6 +16,7 @@ export interface ItemProps {
 };
 
 export function Item(props: ItemProps) {
+  const dispatch = useDispatch();
   const doSomething = null;
   const [amountState, setAmountState] = useState(0);
   const { id, nome, preco, foto, tamanho, ingredientes, categoria, isCustomPizza } = props;
@@ -48,7 +51,7 @@ export function Item(props: ItemProps) {
           {isCustomPizza ?
             <Button onClick={() => doSomething} children="Escolher sabor" />
             :
-            <Button onClick={() => doSomething} children="Adicionar ao carrinho" />
+            <Button onClick={() => {if(amountState) dispatch(addItemToCart({ ...props, amount: amountState}))}} children="Adicionar ao carrinho" />
           }
         </ButtonContainer>
     </ItemsContainer>  
