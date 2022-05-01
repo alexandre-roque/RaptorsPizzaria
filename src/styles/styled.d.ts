@@ -8,7 +8,7 @@ declare module 'styled-components'{
             primary: string;
             secundary: string;
             icon: string,
-
+            imageborder: string,
             background: string;
             text: string;
         }

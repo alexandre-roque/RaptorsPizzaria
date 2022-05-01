@@ -41,7 +41,7 @@ export const CatalogContainer = styled.div`
     }
   }
   .menu {
-    padding: 5rem 0;
+    padding: 3rem 0;
   }
   .title {
     text-align: center;
@@ -69,7 +69,7 @@ export const CatalogContainer = styled.div`
     margin: 0 0.5rem;
     letter-spacing: 1px;
     padding: 0.375rem 0.75rem;
-    color: hsl(360, 71%, 66%);
+    color: ${props => props.theme.colors.imageborder};
     cursor: pointer;
     transition: all 0.3s linear;
     border-radius: 0.25rem;
@@ -91,15 +91,6 @@ export const CatalogContainer = styled.div`
     display: grid;
     gap: 1rem 2rem;
     max-width: 25rem;
-  }
-
-  .photo {
-    object-fit: cover;
-    height: 200px;
-    width: 100%;
-    border: 0.25rem solid hsl(360, 71%, 66%);
-    border-radius: 0.25rem;
-    display: block;
   }
 
   .logo {
@@ -131,17 +122,11 @@ export const CatalogContainer = styled.div`
       gap: 0 1.25rem;
       max-width: 40rem;
     }
-    .photo {
-      height: 175px;
-    }
   }
   @media screen and (min-width: 1200px) {
     .section-center {
       width: 95vw;
       grid-template-columns: 1fr 1fr;
-    }
-    .photo {
-      height: 150px;
     }
   }
 

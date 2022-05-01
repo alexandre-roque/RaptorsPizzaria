@@ -7,7 +7,7 @@ export const ImageContainer = styled.div`
     object-fit: cover;
     height: 200px;
     width: 100%;
-    border: 0.25rem solid hsl(360, 71%, 66%);
+    border: 0.25rem solid ${props => props.theme.colors.imageborder};
     border-radius: 0.25rem;
     display: block;
   }

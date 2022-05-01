@@ -8,6 +8,8 @@ export const HeaderBody = styled.div`
         list-style: none;
         font-size: 1.2rem;
     }
+    position: sticky;
+    top: 0;
 `;
 
 export const StyledHeader = styled.header`
