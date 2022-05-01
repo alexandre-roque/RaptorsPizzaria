@@ -8,7 +8,7 @@ export const StyledButton = styled.button`
     letter-spacing: 0.2rem;
     width: 65%;
     height: 3rem;
-    max-width: ${props => props.children==='Adicionar ao carrinho' ? "300px" : "none"};
+    max-width: ${props => props.children==='Adicionar ao carrinho' || props.children==='Escolher sabor' ? "300px" : "none"};
     border: none;
     border-radius: 2rem;
     color: ${props => props.theme.colors.text};

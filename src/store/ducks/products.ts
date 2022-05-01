@@ -1,31 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { cardapio } from "../../cardapio";
-
-interface Item {
-    nome: string,
-    tamanho: string,
-    preco: number,
-    id: number,
-    categoria: string
-};
+import { ItemProps } from "../../components/Item";
 
 export const productSlice = createSlice({
     name: 'products',
-    initialState: cardapio as Item[],
+    initialState: cardapio as ItemProps[],
     reducers: {
-        addProduct: (state, action: PayloadAction<Item>) => {
+        addProduct: (state, action: PayloadAction<ItemProps>) => {
             return [...state, action.payload ]
         },
         removeProduct: (state, action: PayloadAction<number>) => {
             state = state.filter(({ id }) => id !== action.payload)
         },
-        setProducts: (state, action: PayloadAction<Item[]>) => {
+        setProducts: (state, action: PayloadAction<ItemProps[]>) => {
             state = action.payload
         }
     } 
 });
 
 
-export const selectProducts = (state: { products: Item[]; }) => state.products;
+export const selectProducts = (state: { products: ItemProps[]; }) => state.products;
 
 export default productSlice.reducer;
