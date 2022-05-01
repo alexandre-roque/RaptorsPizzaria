@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 
 export interface ItemProps {
   nome: string,
-  tamanho: string,
+  tamanho?: string,
   preco: number,
   id: number,
   categoria: string,
-  foto?: any
+  foto?: any,
+  ingredientes?: string
 };
 
 export function Item(props: ItemProps) {

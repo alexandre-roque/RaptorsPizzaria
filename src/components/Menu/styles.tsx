@@ -1,28 +1,16 @@
 import styled from 'styled-components';
 
-export const CatalogContainer = styled.div`
+export const ImageContainer = styled.div`
     code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
     }
 
-    h1,
-    h2,
-    h3,
-    h4 {
-        letter-spacing:  0.1rem;
-        line-height: 1.25;
-        margin-bottom: 0.75rem;
-        color: ${props => props.theme.colors.text};
-    }
-
-    h3 {
-    font-size: 1.25rem;
-    }
-
-    h4 {
+    letter-spacing:  0.1rem;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    color: ${props => props.theme.colors.text};
     font-size: 0.875rem;
-    }
 
     p {
     margin-bottom: 1.25rem;
@@ -84,6 +72,7 @@ export const CatalogContainer = styled.div`
     max-width: 1170px;
     display: grid;
     gap: 3rem 2rem;
+    justify-items: baseline;
     }
 
     .menu-item {
@@ -220,4 +209,16 @@ export const CatalogContainer = styled.div`
       .item h4 {
         margin-bottom: 0;
       }      
+`;
+
+export const ItemsContainer = styled.div`
+    align-items: baseline;
+`;
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem 0 2rem 0;
 `;

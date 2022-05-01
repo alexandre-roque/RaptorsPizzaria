@@ -5,7 +5,8 @@ import { cardapio } from "../../cardapio";
 import Header from "../../components/Header";
 import { CatalogContainer } from "./styles";
 
-const allCategories = ["all", ...new Set(cardapio.map((item) => item.categoria))];
+const allCategories = ["Todos", ...new Set(cardapio.map((item) => item.categoria))];
+allCategories.push("Monte sua pizza grande com dois sabores");
 
 const Catalog = () => {
   const [menuItems, setMenuItems] = useState(cardapio);
@@ -14,13 +15,19 @@ const Catalog = () => {
 
   const filterItems = (category: string) => {
     setActiveCategory(category);
-    if (category === "all") {
+    if (category === "Todos") {
       setMenuItems(cardapio);
+      return;
+    } else if (category === "Monte sua pizza grande com dois sabores") {
+      setMenuItems(cardapio.filter((item) => item.categoria === "Pizza"));
       return;
     }
     const newItems = cardapio.filter((item) => item.categoria === category);
     setMenuItems(newItems);
   };
+
+  if (!activeCategory)
+    setActiveCategory("Todos");
   
   return (
     <>
@@ -28,7 +35,7 @@ const Catalog = () => {
       <CatalogContainer>
         <section className="menu section">
           <div className="title">
-            <h2>Menu List</h2>
+            <h2>Cardápio</h2>
             <div className="underline"></div>
           </div>
           <Categories
@@ -36,7 +43,7 @@ const Catalog = () => {
             activeCategory={activeCategory}
             filterItems={filterItems}
           />
-          <Menu items={menuItems} />
+          <Menu items={menuItems} isCustomPizza={activeCategory === "Monte sua pizza grande com dois sabores"}/>
         </section>
       </CatalogContainer>
     </>
