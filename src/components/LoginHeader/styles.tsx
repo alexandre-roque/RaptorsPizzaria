@@ -19,7 +19,7 @@ export const Toggle = styled.button`
     border-radius: 50%;
     border: none;
     background-color: ${props => props.theme.colors.secundary};
-    color: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.icon};
     &:focus {
         outline: none;
     }

@@ -4,7 +4,7 @@ export default {
     colors: {
         primary: '#212738',
         secundary: '#443850',
-        toggleOn: '#23B5D3',
+        icon: '#59C9A5',
 
         background: '#00313C',
         text: '#EAF0CE'

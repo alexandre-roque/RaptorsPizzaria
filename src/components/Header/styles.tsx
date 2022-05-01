@@ -47,5 +47,4 @@ export const StyledIcon = styled.div`
     width: 45px;
     height: 15px;
     border-radius: 1px;
-    color: ${props => props.theme.colors.toggleOn};
 `;
