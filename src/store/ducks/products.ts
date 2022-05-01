@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { cardapio } from "../../cardapio";
 
 interface Item {
-    item: string,
+    nome: string,
     tamanho: string,
     preco: number,
     id: number,

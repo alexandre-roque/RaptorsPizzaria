@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
+import Button from '../Button';
+import { AmountButton, AmountContainer, AmountNumber, ButtonContainer, ImageContainer, ItemsContainer } from '../Menu/styles';
 
 export interface ItemProps {
   nome: string,
@@ -7,15 +9,48 @@ export interface ItemProps {
   id: number,
   categoria: string,
   foto?: any,
-  ingredientes?: string
+  ingredientes?: string,
+  isCustomPizza?: Boolean
 };
 
 export function Item(props: ItemProps) {
-    return (
-      <>
-        <p>Item: {props.nome} </p>
-        <p>Tamanho: {props.tamanho} </p>
-        <p>Preço: {props.preco} </p>
-      </>
-    );
+  const doSomething = null;
+  const [amountState, setAmountState] = useState(0);
+  const { id, nome, preco, foto, tamanho, ingredientes, categoria, isCustomPizza } = props;
+  
+  return (
+    <ItemsContainer>
+      <article key={id} className="menu-item">
+        <ImageContainer>
+          <img src={foto} alt={nome} className="photo" />
+        </ImageContainer>
+
+        <div className="item-info">
+          <header>
+            {isCustomPizza ?
+              <h4>{nome}</h4>
+              :
+              <>
+                <h4>{nome} {tamanho ? <>- {tamanho}</> : null}</h4>
+                <h4 className="price">R${preco}</h4>
+              </>
+            }
+          </header>
+          {ingredientes ? <p className="item-text">{ingredientes}</p> : null}
+        </div>
+      </article>
+        <ButtonContainer>
+          <AmountContainer>
+            <AmountButton onClick={() => {if(amountState) setAmountState(amountState - 1)}} children="-" />
+            <AmountNumber>{amountState}</AmountNumber>
+            <AmountButton onClick={() => setAmountState(amountState + 1)} children="+" />
+          </AmountContainer>
+          {isCustomPizza ?
+            <Button onClick={() => doSomething} children="Escolher sabor" />
+            :
+            <Button onClick={() => doSomething} children="Adicionar ao carrinho" />
+          }
+        </ButtonContainer>
+    </ItemsContainer>  
+  );
 }
