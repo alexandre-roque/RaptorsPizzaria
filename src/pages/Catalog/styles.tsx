@@ -59,6 +59,7 @@ export const CatalogContainer = styled.div`
   .btn-container {
     margin-bottom: 4rem;
     display: flex;
+    justify-content: center;
   }
 
   .filter-btn {
