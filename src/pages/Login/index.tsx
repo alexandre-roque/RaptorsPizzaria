@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import LoginHeader from "../../components/LoginHeader";
 import { ButtonContainer, HorizontalRule, InputContainer, LoginBody, LoginContainer } from "./styles";
+import Header from "../../components/Header";
 
 export default function Login () {
     const auth = useAuth();
@@ -27,6 +28,7 @@ export default function Login () {
 
     return (
         <>
+            <Header />
             <LoginBody>
                 <LoginContainer>
                     <LoginHeader content="Faça seu login" />

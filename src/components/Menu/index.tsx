@@ -1,5 +1,5 @@
 import React from "react";
-import { Item, ItemProps } from "../../components/Item";
+import { Item, ItemProps } from "../Item";
 
 const Menu = ({ items, isCustomPizza } : { items: ItemProps[], isCustomPizza: Boolean }) => {
   return (

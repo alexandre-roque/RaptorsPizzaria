@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Menu from "../../components/Menu/Menu";
+import Menu from "../../components/Menu";
 import Categories from "../../components/Categories/Categories";
 import { cardapio } from "../../cardapio";
 import Header from "../../components/Header";
