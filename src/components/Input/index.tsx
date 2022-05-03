@@ -6,9 +6,10 @@ export type InputComponentProps = {
     value: string,
     placeholder: string,
     onChange: ChangeEventHandler<HTMLInputElement>,
-    onBlur?: FocusEventHandler<HTMLInputElement>
+    onBlur?: FocusEventHandler<HTMLInputElement>,
+    width?: string
 }
 
-export default function Input({ type, placeholder, onChange, onBlur, value }: InputComponentProps) {
-    return <StyledInput onChange={onChange} onBlur={onBlur} value={value} type={type} placeholder={placeholder} />;
+export default function Input({ type, placeholder, onChange, onBlur, value, width }: InputComponentProps) {
+    return <StyledInput width={width} onChange={onChange} onBlur={onBlur} value={value} type={type} placeholder={placeholder} />;
 }
