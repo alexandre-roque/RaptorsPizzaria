@@ -6,6 +6,7 @@ import Input from "../../components/Input";
 import LoginHeader from "../../components/LoginHeader";
 import { ButtonContainer, HorizontalRule, InputContainer, LoginBody, LoginContainer } from "./styles";
 import Header from "../../components/Header";
+import { message } from "antd";
 
 export default function Login () {
     const auth = useAuth();
@@ -19,7 +20,7 @@ export default function Login () {
 
             navigate('/');
         } catch (error) {
-            console.log("Email ou senha inválidos");
+            message.error("Email ou senha inválidos");
         }
     }
 

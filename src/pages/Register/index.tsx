@@ -7,6 +7,7 @@ import LoginHeader from "../../components/LoginHeader";
 import { RegisterContainer, InputContainer, InputItem } from "./styles";
 import axios from "axios";
 import { Api } from "../../services/api";
+import { message } from "antd";
 
 export default function Register() {
     const [nameValue, setNameValue] = useState("");
@@ -65,7 +66,7 @@ export default function Register() {
             
             navigate('/login');
         } catch (error) {
-            console.log("Erro ao registrar o usuário");
+            message.error("Erro ao registrar o usuário");
         }
     };
 

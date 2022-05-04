@@ -7,6 +7,7 @@ import { queryClient } from './services/queryClient'
 import { Provider } from 'react-redux'
 import store from './store'
 import Theme from './components/CustomThemeProvider'
+import 'antd/dist/antd.css'
 
 ReactDOM.render(
   <React.StrictMode>
