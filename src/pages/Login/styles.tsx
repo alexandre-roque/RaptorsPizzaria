@@ -5,21 +5,26 @@ export const LoginBody = styled.div`
 `;
 
 export const LoginContainer = styled.div`
-    display: block;
+    display: flex;
     align-items: center;
     flex-direction: column;
-    margin: auto;
-    margin-top: 200px;
+    min-width: 400px;
+    max-width: 800px;
+    min-height: 450px;
+    margin: 0 auto;
+    margin-top: 40px;
     height: 50vh;
     width: 30vw;
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(8.5px);
     border-radius: 10px;
+    color: #ffffff;
     letter-spacing: 0.4 rem;
 `;
 
 export const InputContainer = styled.div`
+    margin-top:10px;
     display: flex;
     align-items: center;
     flex-direction: column;

@@ -28,7 +28,6 @@ export default function Login () {
 
     return (
         <>
-            <Header />
             <LoginBody>
                 <LoginContainer>
                     <LoginHeader content="Faça seu login" />

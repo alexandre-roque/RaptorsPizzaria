@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     height: 60px;
-    width: 30vw;
+    width: 100%;
     background: ${props => props.theme.colors.primary};
     color: ${props => props.theme.colors.text};
     display: flex;
@@ -12,8 +12,13 @@ export const Container = styled.div`
     border-radius: 10px;
 `;
 
+export const ToggleDiv = styled.div`
+    display: flex;
+`;
+
 export const Toggle = styled.button`
     cursor: pointer;
+    margin-right: 10px;
     height: 45px;
     width: 45px;   
     border-radius: 50%;

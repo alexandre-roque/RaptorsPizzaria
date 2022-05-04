@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledInput = styled.input`
+    margin: 10px;
     ::placeholder{
         color: lighten(${props => props.theme.colors.secundary})
     }

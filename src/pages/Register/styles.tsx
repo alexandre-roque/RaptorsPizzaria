@@ -4,10 +4,12 @@ export const RegisterContainer = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: auto;
-    margin-top: 10px;
-    height: 92vh;
-    width: 30vw;
+    min-width: 400px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 80vh;
+    width: 60vw;
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(8.5px);
@@ -17,11 +19,12 @@ export const RegisterContainer = styled.div`
 `;
 
 export const InputContainer = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    padding-bottom: 2px; 
-    height: 95%;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+`;
+
+export const InputItem = styled.div`
+    margin: 0 auto;
+    display: block;
+    justify-content: space-between;
 `;

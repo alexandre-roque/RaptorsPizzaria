@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { ButtonContainer, LoginBody } from "../Login/styles";
 import LoginHeader from "../../components/LoginHeader";
-import { RegisterContainer, InputContainer } from "./styles";
+import { RegisterContainer, InputContainer, InputItem } from "./styles";
 import axios from "axios";
 import { Api } from "../../services/api";
 
@@ -75,21 +75,24 @@ export default function Register() {
                 <RegisterContainer>
                     <LoginHeader  content="Registre-se" />
                     <InputContainer>
-                        <Input value={nameValue} onChange={onNameChange} type="text" placeholder="Nome" />
-                        <Input value={cpfValue} onChange={onCpfChange} type="text" placeholder="Cpf" />
-                        <Input value={phoneValue} onChange={onPhoneChange} type="text" placeholder="Telefone" />
-                        
-                        <Input value={cepValue} onChange={onCepChange} onBlur={checkCep} type="text" placeholder="Cep" />
-                        <Input value={ruaValue} onChange={onRuaChange} type="text" placeholder="Rua" />
-                        <Input value={numValue} onChange={onNumChange} type="text" placeholder="Número" />
-                        <Input value={bairroValue} onChange={onBairroChange} type="text" placeholder="Bairro" />
-                        <Input value={cidadeValue} onChange={onCidadeChange} type="text" placeholder="Cidade" />
-                        <Input value={estadoValue} onChange={onEstadoChange} type="text" placeholder="Estado" />
-                        <Input value={compValue} onChange={onCompChange} type="text" placeholder="Complemento" />
+                        <InputItem>
+                            <Input value={nameValue} onChange={onNameChange} type="text" placeholder="Nome" />
+                            <Input value={cpfValue} onChange={onCpfChange} type="text" placeholder="Cpf" />
+                            <Input value={phoneValue} onChange={onPhoneChange} type="text" placeholder="Telefone" />
+                            <Input value={emailValue} onChange={onEmailChange} type="text" placeholder="Email" />
+                            <Input value={passwordValue} onChange={onPasswordChange} type="password" placeholder="Senha" />
+                        </InputItem>
+                        <InputItem>
+                            <Input value={cepValue} onChange={onCepChange} onBlur={checkCep} type="text" placeholder="Cep" />
+                            <Input value={ruaValue} onChange={onRuaChange} type="text" placeholder="Rua" />
+                            <Input value={numValue} onChange={onNumChange} type="text" placeholder="Número" />
+                            <Input value={bairroValue} onChange={onBairroChange} type="text" placeholder="Bairro" />
+                            <Input value={cidadeValue} onChange={onCidadeChange} type="text" placeholder="Cidade" />
+                            <Input value={estadoValue} onChange={onEstadoChange} type="text" placeholder="Estado" />
+                            <Input value={compValue} onChange={onCompChange} type="text" placeholder="Complemento" />
+                        </InputItem>
 
-                        <Input value={emailValue} onChange={onEmailChange} type="text" placeholder="Email" />
-                        <Input value={passwordValue} onChange={onPasswordChange} type="password" placeholder="Senha" />
-                    </InputContainer>
+                       </InputContainer>
                     <ButtonContainer>
                         <Button onClick={() => {
                             onFinish({nome: nameValue, cpf: cpfValue, telefone: phoneValue.replace(/\D/g, ''), email: emailValue, senha: passwordValue,
