@@ -71,37 +71,35 @@ export default function Register() {
 
     return (
         <>
-            <LoginBody>
-                <RegisterContainer>
-                    <LoginHeader  content="Registre-se" />
-                    <InputContainer>
-                        <InputItem>
-                            <Input value={nameValue} onChange={onNameChange} type="text" placeholder="Nome" />
-                            <Input value={cpfValue} onChange={onCpfChange} type="text" placeholder="Cpf" />
-                            <Input value={phoneValue} onChange={onPhoneChange} type="text" placeholder="Telefone" />
-                            <Input value={emailValue} onChange={onEmailChange} type="text" placeholder="Email" />
-                            <Input value={passwordValue} onChange={onPasswordChange} type="password" placeholder="Senha" />
-                        </InputItem>
-                        <InputItem>
-                            <Input value={cepValue} onChange={onCepChange} onBlur={checkCep} type="text" placeholder="Cep" />
-                            <Input value={ruaValue} onChange={onRuaChange} type="text" placeholder="Rua" />
-                            <Input value={numValue} onChange={onNumChange} type="text" placeholder="Número" />
-                            <Input value={bairroValue} onChange={onBairroChange} type="text" placeholder="Bairro" />
-                            <Input value={cidadeValue} onChange={onCidadeChange} type="text" placeholder="Cidade" />
-                            <Input value={estadoValue} onChange={onEstadoChange} type="text" placeholder="Estado" />
-                            <Input value={compValue} onChange={onCompChange} type="text" placeholder="Complemento" />
-                        </InputItem>
+            <RegisterContainer>
+                <LoginHeader  content="Registre-se" />
+                <InputContainer>
+                    <InputItem>
+                        <Input value={nameValue} onChange={onNameChange} type="text" placeholder="Nome" />
+                        <Input value={cpfValue} onChange={onCpfChange} type="text" placeholder="Cpf" />
+                        <Input value={phoneValue} onChange={onPhoneChange} type="text" placeholder="Telefone" />
+                        <Input value={emailValue} onChange={onEmailChange} type="text" placeholder="Email" />
+                        <Input value={passwordValue} onChange={onPasswordChange} type="password" placeholder="Senha" />
+                    </InputItem>
+                    <InputItem>
+                        <Input value={cepValue} onChange={onCepChange} onBlur={checkCep} type="text" placeholder="Cep" />
+                        <Input value={ruaValue} onChange={onRuaChange} type="text" placeholder="Rua" />
+                        <Input value={numValue} onChange={onNumChange} type="text" placeholder="Número" />
+                        <Input value={bairroValue} onChange={onBairroChange} type="text" placeholder="Bairro" />
+                        <Input value={cidadeValue} onChange={onCidadeChange} type="text" placeholder="Cidade" />
+                        <Input value={estadoValue} onChange={onEstadoChange} type="text" placeholder="Estado" />
+                        <Input value={compValue} onChange={onCompChange} type="text" placeholder="Complemento" />
+                    </InputItem>
 
-                       </InputContainer>
-                    <ButtonContainer>
-                        <Button onClick={() => {
-                            onFinish({nome: nameValue, cpf: cpfValue, telefone: phoneValue.replace(/\D/g, ''), email: emailValue, senha: passwordValue,
-                                cep: cepValue.replace(/\D/g, ''), nome_rua: ruaValue, bairro: bairroValue, numero: parseInt(numValue), complemento: compValue, 
-                                cidade: cidadeValue, estado: estadoValue
-                        })}} children="Register" />
-                    </ButtonContainer>
-                </RegisterContainer>
-            </LoginBody>
+                    </InputContainer>
+                <ButtonContainer>
+                    <Button onClick={() => {
+                        onFinish({nome: nameValue, cpf: cpfValue, telefone: phoneValue.replace(/\D/g, ''), email: emailValue, senha: passwordValue,
+                            cep: cepValue.replace(/\D/g, ''), nome_rua: ruaValue, bairro: bairroValue, numero: parseInt(numValue), complemento: compValue, 
+                            cidade: cidadeValue, estado: estadoValue
+                    })}} children="Register" />
+                </ButtonContainer>
+            </RegisterContainer>
         </>
     );
 };

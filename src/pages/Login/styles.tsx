@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const LoginBody = styled.div`
-    width: 100vw;
+
 `;
 
 export const LoginContainer = styled.div`
