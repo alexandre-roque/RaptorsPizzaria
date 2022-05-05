@@ -10,7 +10,7 @@ import { Toggle } from '../LoginHeader/styles'
 import { HeaderBody, StyledHeader, StyledIcon, StyledMenu } from './styles'
 import { useNavigate } from 'react-router-dom';
 import { totalAmout } from '../../store/ducks/cart';
-import logo from '../../assets/img/logo.jpg'
+import logo from '/images/logo.png'
 
 export default function Header() {
   const theme= useSelector<RootState, DefaultTheme>(state => state.theme);

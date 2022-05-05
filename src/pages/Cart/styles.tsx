@@ -126,7 +126,6 @@ export const CatalogContainer = styled.div`
   @media screen and (min-width: 1200px) {
     .section-center {
       width: 95vw;
-      grid-template-columns: 1fr 1fr;
     }
   }
 

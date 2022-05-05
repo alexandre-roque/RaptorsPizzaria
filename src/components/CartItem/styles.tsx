@@ -34,15 +34,10 @@ export const ImageContainer = styled.div`
 `;
 
 export const ItemsContainer = styled.div`
-  align-items: baseline;
-`;
-
-export const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
+  padding: 20px;
   justify-content: center;
-  width: 100%;
-  margin: 1rem 0 2rem 0;
 `;
 
 export const AmountContainer = styled.div`
@@ -56,9 +51,9 @@ export const AmountContainer = styled.div`
   margin: 20px;
   padding: 10px;
   background: linear-gradient(to right, ${props => props.theme.colors.primary} 0%, ${props => props.theme.colors.secundary} 130%);
-`;
+  `;
 
-// background: linear-gradient(to right, ${props => props.theme.colors.primary} 0%, ${props => props.theme.colors.secundary} 130%);
+  // background: linear-gradient(to right, ${props => props.theme.colors.primary} 0%, ${props => props.theme.colors.secundary} 130%);
 export const AmountButton = styled.button`
   border: none;
   padding: 5px;

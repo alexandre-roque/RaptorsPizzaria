@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../../store/ducks/cart';
 import Button from '../Button';
-import { AmountButton, AmountContainer, AmountNumber, ButtonContainer, ImageContainer, ItemsContainer } from './styles';
+import { AmountButton, AmountContainer, AmountNumber, ImageContainer, ItemsContainer } from './styles';
 
 export interface ItemProps {
   nome: string,
@@ -16,7 +16,7 @@ export interface ItemProps {
   amount?: number
 };
 
-export function Item(props: ItemProps) {
+export function CartItem(props: ItemProps) {
   const dispatch = useDispatch();
   const doSomething = null;
   const [amountState, setAmountState] = useState(0);
@@ -43,18 +43,11 @@ export function Item(props: ItemProps) {
           {ingredientes ? <p className="item-text">{ingredientes}</p> : null}
         </div>
       </article>
-        <ButtonContainer>
-          <AmountContainer>
-            <AmountButton onClick={() => {if(amountState) setAmountState(amountState - 1)}} children="-" />
-            <AmountNumber>{amountState}</AmountNumber>
-            <AmountButton onClick={() => setAmountState(amountState + 1)} children="+" />
-          </AmountContainer>
-          {isCustomPizza ?
-            <Button onClick={() => doSomething} children="Escolher sabor" />
-            :
-            <Button onClick={() => {if(amountState) dispatch(addItemToCart({ ...props, amount: amountState}))}} children="Adicionar ao carrinho" />
-          }
-        </ButtonContainer>
+        <AmountContainer>
+          <AmountButton onClick={() => {if(amountState) setAmountState(amountState - 1)}} children="-" />
+          <AmountNumber>{amountState}</AmountNumber>
+          <AmountButton onClick={() => setAmountState(amountState + 1)} children="+" />
+        </AmountContainer>
     </ItemsContainer>  
   );
 }
