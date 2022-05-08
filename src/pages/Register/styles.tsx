@@ -21,5 +21,8 @@ export const InputContainer = styled.div`
 `;
 
 export const InputItem = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 10px;
 `;
