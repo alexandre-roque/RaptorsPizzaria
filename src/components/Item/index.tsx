@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../../store/ducks/cart';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { addHalfFlavorToCart, addItemToCart, selectCart } from '../../store/ducks/cart';
 import Button from '../Button';
 import { AmountButton, AmountContainer, AmountNumber, ButtonContainer, ImageContainer, ItemsContainer } from './styles';
 
@@ -22,6 +23,10 @@ export function Item(props: ItemProps) {
   const [amountState, setAmountState] = useState(0);
   const { id, nome, preco, foto, tamanho, ingredientes, categoria, isCustomPizza } = props;
   
+  const makeDoubleFlavorPizza = () => {
+    dispatch(addHalfFlavorToCart({ ...props, amount: 1, tamanho: 'Grande', isCustomPizza: true}));
+  };
+
   return (
     <ItemsContainer>
       <article key={id} className="menu-item">
@@ -44,15 +49,17 @@ export function Item(props: ItemProps) {
         </div>
       </article>
         <ButtonContainer>
-          <AmountContainer>
-            <AmountButton onClick={() => {if(amountState) setAmountState(amountState - 1)}} children="-" />
-            <AmountNumber>{amountState}</AmountNumber>
-            <AmountButton onClick={() => setAmountState(amountState + 1)} children="+" />
-          </AmountContainer>
           {isCustomPizza ?
-            <Button onClick={() => doSomething} children="Escolher sabor" />
+            <Button onClick={() => makeDoubleFlavorPizza()} children="Escolher sabor" />
             :
-            <Button onClick={() => {if(amountState) dispatch(addItemToCart({ ...props, amount: amountState}))}} children="Adicionar ao carrinho" />
+            <>
+              <AmountContainer>
+                <AmountButton onClick={() => {if(amountState) setAmountState(amountState - 1)}} children="-" />
+                <AmountNumber>{amountState}</AmountNumber>
+                <AmountButton onClick={() => setAmountState(amountState + 1)} children="+" />
+              </AmountContainer>
+              <Button onClick={() => {if(amountState) dispatch(addItemToCart({ ...props, amount: amountState}))}} children="Adicionar ao carrinho" />
+            </>
           }
         </ButtonContainer>
     </ItemsContainer>  

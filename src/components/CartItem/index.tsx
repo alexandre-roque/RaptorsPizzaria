@@ -1,8 +1,9 @@
-import React, { Component, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../../store/ducks/cart';
-import Button from '../Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { DefaultTheme } from 'styled-components';
+import { totalAmout } from '../../store/ducks/cart';
 import { AmountButton, AmountContainer, AmountNumber, ImageContainer, ItemsContainer } from './styles';
+import { useState } from 'react';
 
 export interface ItemProps {
   nome: string,
@@ -18,8 +19,9 @@ export interface ItemProps {
 
 export function CartItem(props: ItemProps) {
   const dispatch = useDispatch();
-  const doSomething = null;
-  const [amountState, setAmountState] = useState(0);
+  const theme= useSelector<RootState, DefaultTheme>(state => state.theme);
+  const totalAmount= useSelector<RootState, number>(totalAmout);
+  const [amountState, setAmountState] = useState(totalAmount);
   const { id, nome, preco, foto, tamanho, ingredientes, categoria, isCustomPizza } = props;
   
   return (

@@ -45,6 +45,9 @@ export const StyledMenu = styled.div`
 `;
 
 export const StyledIcon = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     width: 45px;
     height: 15px;

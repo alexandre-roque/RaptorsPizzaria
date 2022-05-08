@@ -28,9 +28,29 @@ export const cartSlice = createSlice({
             else {
                 return state.filter(item => item.id !== action.payload);
             }
+        },
+        addHalfFlavorToCart: (state, action: PayloadAction<ItemCart>) => {
+            const itemIndex = state.findIndex(item => item.id === action.payload.id);
+            if(itemIndex !== -1){
+                state[itemIndex].amount += action.payload.amount;
+            }
+            else {
+                state.push({...action.payload, amount: action.payload.amount});
+            }
+        }, 
+        removeHalfFlavorToCart: (state, action: PayloadAction<number>) => {
+            const itemIndex = state.findIndex(item => item.id === action.payload);
+            if(state[itemIndex].amount > 1){
+                state[itemIndex].amount -= 1;
+            }
+            else {
+                return state.filter(item => item.id !== action.payload);
+            }
         }
     }
 });
+
+export const { addHalfFlavorToCart, removeHalfFlavorToCart } = cartSlice.actions;
 
 export const { addItemToCart, removeItemFromCart } = cartSlice.actions;
 
