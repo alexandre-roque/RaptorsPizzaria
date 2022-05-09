@@ -53,3 +53,18 @@ export const StyledIcon = styled.div`
     height: 15px;
     border-radius: 1px;
 `;
+
+export const Profile = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    text-align: center;
+    font-size: 12px;
+    color: ${props => props.theme.colors.icon};
+`;
+
+export const ProfileText = styled.div`
+  background-color: ${props => props.theme.colors.secundary};
+  border: none;
+  border-radius: 30px;  
+`;

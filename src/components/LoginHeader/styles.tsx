@@ -19,10 +19,12 @@ export const ToggleDiv = styled.div`
 export const Toggle = styled.button`
     cursor: pointer;
     margin-right: 10px;
+    margin-left: 10px;
     height: 45px;
     width: 45px;   
     border-radius: 50%;
     border: none;
+    font-size: 12px;
     background-color: ${props => props.theme.colors.secundary};
     color: ${props => props.theme.colors.icon};
     &:focus {
