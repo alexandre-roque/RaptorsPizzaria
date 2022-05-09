@@ -6,7 +6,8 @@ import { IUser } from "../../context/AuthProvider/types";
 const initialState: IUser = {
     email: '',
     nome: '',
-    endereco: undefined
+    endereco: undefined,
+    isLogged: false
 };
 
 export const userSlice = createSlice({
