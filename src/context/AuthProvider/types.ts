@@ -7,7 +7,8 @@ export interface IUser {
         numero?:number,
         bairro?:string,
         cidade?:string,
-        estado?:string
+        estado?:string,
+        rua?: string
     },
     isLogged?: boolean
 }

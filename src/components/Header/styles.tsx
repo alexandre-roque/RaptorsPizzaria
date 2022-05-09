@@ -59,12 +59,13 @@ export const Profile = styled.div`
     flex-direction: column;
     justify-content: center;  
     text-align: center;
-    font-size: 12px;
+    font-size: 11px;
     color: ${props => props.theme.colors.icon};
 `;
 
 export const ProfileText = styled.div`
-  background-color: ${props => props.theme.colors.secundary};
-  border: none;
-  border-radius: 30px;  
+    height: 45px;
+    background-color: ${props => props.theme.colors.secundary};
+    border: none;
+    border-radius: 30px;  
 `;
