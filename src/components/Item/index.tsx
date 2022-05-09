@@ -58,7 +58,7 @@ export function Item(props: ItemProps) {
                 <AmountNumber>{amountState}</AmountNumber>
                 <AmountButton onClick={() => setAmountState(amountState + 1)} children="+" />
               </AmountContainer>
-              <Button onClick={() => {if(amountState) dispatch(addItemToCart({ ...props, amount: amountState}))}} children="Adicionar ao carrinho" />
+              <Button onClick={() => {if(amountState) dispatch(addItemToCart({ ...props, amount: amountState})); setAmountState(0); }} children="Adicionar ao carrinho" />
             </>
           }
         </ButtonContainer>
