@@ -3,6 +3,7 @@ import { CgSun } from 'react-icons/cg';
 import { HiMoon } from 'react-icons/hi';
 import { BsCart4 } from 'react-icons/bs'
 import { AiOutlineUser } from 'react-icons/ai';
+import { BiUserCheck } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { DefaultTheme } from 'styled-components';
 import { RootState } from '../../store';
@@ -36,7 +37,7 @@ export default function Header() {
                 <StyledMenu>
                   <li>
                     <Profile>
-                      <Toggle onClick={() => navigate('/login')}><AiOutlineUser size={20}/></Toggle>
+                      <Toggle onClick={() => navigate('/login')}>{user.isLogged ? <BiUserCheck size={20}/> : <AiOutlineUser size={20}/>}</Toggle>
                       <ProfileText>{user.isLogged ? <>Olá <br/>{user.nome?.match(/.* /)}</> : <a href="/login">Login</a>}</ProfileText>
                     </Profile>
                   </li>
