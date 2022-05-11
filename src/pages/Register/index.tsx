@@ -62,9 +62,11 @@ export default function Register() {
             const request = await Api.post("/register_user", { nome: values.nome, cpf: values.cpf, telefone: values.telefone, 
                 email: values.email, senha: values.senha, cep: values.cep, nome_rua: values.nome_rua, 
                 bairro: values.bairro, numero: values.numero, complemento: values.complemento, 
-                cidade: values.cidade, estado: values.estado}).then(res => console.log(res.data.id));
-            
-            navigate('/login');
+                cidade: values.cidade, estado: values.estado})
+                .then(res => {
+                    message.info('Usuário registrado com sucesso!');
+                    navigate('/login');
+                });
         } catch (error) {
             message.error("Erro ao registrar o usuário");
         }
