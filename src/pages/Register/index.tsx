@@ -97,7 +97,7 @@ export default function Register() {
                     </InputContainer>
                 <ButtonContainer>
                     <Button onClick={() => {
-                        onFinish({nome: nameValue, cpf: cpfValue, telefone: phoneValue.replace(/\D/g, ''), email: emailValue, senha: passwordValue,
+                        onFinish({nome: nameValue, cpf: cpfValue.replace(/\D/g, ''), telefone: phoneValue.replace(/\D/g, ''), email: emailValue, senha: passwordValue,
                             cep: cepValue.replace(/\D/g, ''), nome_rua: ruaValue, bairro: bairroValue, numero: parseInt(numValue), complemento: compValue, 
                             cidade: cidadeValue, estado: estadoValue
                     })}} children="Register" />
