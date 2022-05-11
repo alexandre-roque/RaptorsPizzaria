@@ -69,3 +69,14 @@ export const ProfileText = styled.div`
     border: none;
     border-radius: 30px;  
 `;
+
+export const ProfileButton = styled.button`
+    height: 45px;
+    background-color: ${props => props.theme.colors.secundary};
+    border: none;
+    border-radius: 30px;  
+    cursor: pointer;
+    :hover{
+        box-shadow:  1px 1px 10px ${props => props.theme.colors.text};
+    }
+`;

@@ -9,7 +9,7 @@ import { DefaultTheme } from 'styled-components';
 import { RootState } from '../../store';
 import { changeTheme } from '../../store/ducks/theme';
 import { Toggle } from '../LoginHeader/styles'
-import { HeaderBody, Profile, ProfileText, StyledHeader, StyledIcon, StyledMenu } from './styles'
+import { HeaderBody, Profile, ProfileButton, ProfileText, StyledHeader, StyledIcon, StyledMenu } from './styles'
 import { useNavigate } from 'react-router-dom';
 import { totalAmout } from '../../store/ducks/cart';
 import logo from '/images/logo.png'
@@ -38,7 +38,7 @@ export default function Header() {
                   <li>
                     <Profile>
                       <Toggle onClick={() => navigate('/login')}>{user.isLogged ? <BiUserCheck size={20}/> : <AiOutlineUser size={20}/>}</Toggle>
-                      <ProfileText>{user.isLogged ? <>Olá <br/>{user.nome?.match(/.* /)}</> : <a href="/login">Login</a>}</ProfileText>
+                      {user.isLogged ? <ProfileText><>Olá <br/>{user.nome?.match(/.* /)}</></ProfileText> : <ProfileButton onClick={() => navigate('/login')}>Login</ProfileButton>}
                     </Profile>
                   </li>
                   <li>
