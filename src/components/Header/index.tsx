@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <HeaderBody>
         <StyledHeader>
-            <a href="/"><img src={logo} alt="logo" /></a>
+            <button onClick={() => navigate('/')}><img src={logo} alt="logo" /></button>
             <nav>
                 <StyledMenu>
                   <li>
