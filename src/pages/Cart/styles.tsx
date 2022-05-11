@@ -126,7 +126,6 @@ export const CatalogContainer = styled.div`
   @media screen and (min-width: 1200px) {
     .section-center {
       width: 95vw;
-      grid-template-columns: 1fr 1fr;
     }
   }
 
@@ -205,4 +204,13 @@ export const CatalogContainer = styled.div`
   .item h4 {
     margin-bottom: 0;
   }
+`;
+
+export const AdressTo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: ${props => props.theme.colors.imageborder};
+  font-size: 20px;
 `;
