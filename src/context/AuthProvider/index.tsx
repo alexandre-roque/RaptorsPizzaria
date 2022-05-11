@@ -32,7 +32,8 @@ export const AuthProvider = ({children}: IAuthProvider) => {
             email, 
             nome: response.nome, 
             endereco: response.endereco,
-            isLogged: response.isLogged
+            isLogged: response.isLogged,
+            id: response.id
         };
 
         setUser(payload);

@@ -31,19 +31,13 @@ export const cartSlice = createSlice({
         },
         addHalfFlavorToCart: (state, action: PayloadAction<ItemCart>) => {
             const itemIndex = state.findIndex(item => item.id === action.payload.id);
-            if(itemIndex !== -1){
-                state[itemIndex].amount += action.payload.amount;
-            }
-            else {
+            if(itemIndex === -1){
                 state.push({...action.payload, amount: action.payload.amount});
             }
         }, 
         removeHalfFlavorToCart: (state, action: PayloadAction<number>) => {
             const itemIndex = state.findIndex(item => item.id === action.payload);
-            if(state[itemIndex].amount > 1){
-                state[itemIndex].amount -= 1;
-            }
-            else {
+            if(state[itemIndex].amount <= 1){
                 return state.filter(item => item.id !== action.payload);
             }
         },

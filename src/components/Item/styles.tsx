@@ -58,9 +58,9 @@ export const AmountContainer = styled.div`
   background: linear-gradient(to right, ${props => props.theme.colors.primary} 0%, ${props => props.theme.colors.secundary} 130%);
 `;
 
-// background: linear-gradient(to right, ${props => props.theme.colors.primary} 0%, ${props => props.theme.colors.secundary} 130%);
 export const AmountButton = styled.button`
-background: ${props => props.theme.colors.secundary};
+  background: linear-gradient(to right, ${props => props.theme.colors.primary} 0%, ${props => props.theme.colors.secundary} 130%);
+  background: ${props => props.theme.colors.secundary};
   border: none;
   padding: 5px;
   border-radius: 2rem;

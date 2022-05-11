@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import { addHalfFlavorToCart, addItemToCart, selectCart } from '../../store/ducks/cart';
+import { addHalfFlavorToCart, addItemToCart, removeItemFromCart, selectCart } from '../../store/ducks/cart';
 import Button from '../Button';
 import { AmountButton, AmountContainer, AmountNumber, ButtonContainer, ImageContainer, ItemsContainer } from './styles';
 
@@ -19,12 +19,21 @@ export interface ItemProps {
 
 export function Item(props: ItemProps) {
   const dispatch = useDispatch();
-  const doSomething = null;
+  const cart = useSelector(selectCart);
   const [amountState, setAmountState] = useState(0);
   const { id, nome, preco, foto, tamanho, ingredientes, categoria, isCustomPizza } = props;
   
   const makeDoubleFlavorPizza = () => {
-    dispatch(addHalfFlavorToCart({ ...props, amount: 1, tamanho: 'Grande', isCustomPizza: true}));
+    let customPizza = cart.find(item => item.isCustomPizza);
+    console.log(customPizza);
+    if (!!customPizza) {
+      dispatch(removeItemFromCart(customPizza.id));
+      dispatch(addItemToCart({ ...props, tamanho: 'Grande', ingredientes: 'Sabor 1: ' + props.ingredientes + '. // Sabor 2: ' + customPizza.ingredientes + '.', isCustomPizza: true, nome: props.nome + ' + ' + customPizza.nome, amount: 1, preco: 35, foto: '/images/dois_sabores.png'})); 
+      setAmountState(0);
+      console.log(cart);
+    } else {
+      dispatch(addHalfFlavorToCart({ ...props, amount: 1, tamanho: 'Grande', isCustomPizza: true}));
+    }
   };
 
   return (

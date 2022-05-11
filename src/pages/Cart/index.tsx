@@ -10,6 +10,7 @@ import { IUser } from "../../context/AuthProvider/types";
 import { selectUser } from "../../store/ducks/user";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
+import { Api } from "../../services/api";
 
 export default function Cart() {
     const cart = useSelector(selectCart);
@@ -18,10 +19,38 @@ export default function Cart() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    async function makeRequest (cart: any) {
+        cart.forEach((it: any) => {
+            console.log(user, it)
+            try {
+                if (it.isCustomPizza) {
+                    const request = Api.post("/register_order", { 
+                        "pizza": it.nome,
+                        "tamanho": it.tamanho,
+                        "preco": it.preco,
+                        "categoria": "pizza",
+                        "quantidade": it.amount,
+                        "id_usuario": user.id
+                    });
+                } else {
+                    const request = Api.post("/register_order", { 
+                        "id_item": it.id,
+                        "quantidade": it.amount,
+                        "id_usuario": user.id
+                    });
+                }
+            } catch (error) {
+                message.error("Erro ao realizar o pedido");
+            }
+        });
+    }
+
     const handleOrder = () => {
-        message.info('Seu pedido foi feito com sucesso');
-        dispatch(emptyCart());
-        navigate('/');
+        makeRequest(cart).then(res => {
+            message.info('Seu pedido foi feito com sucesso');
+            dispatch(emptyCart());
+            navigate('/');
+        });
     }
 
     return (

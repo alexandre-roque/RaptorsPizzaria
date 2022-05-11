@@ -10,7 +10,8 @@ export interface IUser {
         estado?:string,
         rua?: string
     },
-    isLogged?: boolean
+    isLogged?: boolean,
+    id?: number
 }
 
 export interface IContext extends IUser {

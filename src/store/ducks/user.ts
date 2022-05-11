@@ -7,7 +7,8 @@ const initialState: IUser = {
     email: '',
     nome: '',
     endereco: undefined,
-    isLogged: false
+    isLogged: false,
+    id: -1
 };
 
 export const userSlice = createSlice({
