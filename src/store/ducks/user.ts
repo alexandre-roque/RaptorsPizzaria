@@ -1,5 +1,3 @@
-// Redux: https://youtu.be/3KUVksNAAxo?t=378
-
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IUser } from "../../context/AuthProvider/types";
 
