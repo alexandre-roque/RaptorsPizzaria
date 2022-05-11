@@ -38,7 +38,7 @@ export default function Header() {
                   <li>
                     <Profile>
                       <Toggle onClick={() => navigate('/login')}>{user.isLogged ? <BiUserCheck size={20}/> : <AiOutlineUser size={20}/>}</Toggle>
-                      {user.isLogged ? <ProfileText><>Olá <br/>{user.nome?.match(/.* /)}</></ProfileText> : <ProfileButton onClick={() => navigate('/login')}>Login</ProfileButton>}
+                      {user.isLogged ? <ProfileText><>Olá <br/>{user.nome}</></ProfileText> : <ProfileButton onClick={() => navigate('/login')}>Login</ProfileButton>}
                     </Profile>
                   </li>
                   <li>
